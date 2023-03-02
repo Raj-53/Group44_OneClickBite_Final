@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="391dp"
+        android:layout_height="393dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.006">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="359dp"
+            android:layout_height="357dp"
+            android:scaleType="fitXY"
+            tools:srcCompat="@tools:sample/avatars" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCamera"
+        android:layout_width="122dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/purple_200"
+        android:fontFamily="sans-serif"
+        android:text="Camera"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/btnGallery"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnGallery"
+        android:layout_width="122dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/purple_200"
+        android:fontFamily="sans-serif"
+        android:text="Gallery"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnCamera"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnDetect"
+        android:layout_width="122dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="120dp"
+        android:backgroundTint="@color/purple_200"
+        android:fontFamily="sans-serif"
+        android:text="Detect"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnGallery"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toStartOf="@+id/btnCamera"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
