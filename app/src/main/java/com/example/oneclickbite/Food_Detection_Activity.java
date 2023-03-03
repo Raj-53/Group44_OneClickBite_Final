@@ -22,8 +22,8 @@ public class Food_Detection_Activity extends AppCompatActivity {
 
         FoodImg = findViewById(R.id.FoodImg);
         txtLabel = findViewById(R.id.txtLabel);
-        radioGet = findViewById(R.id.radioGet);
-        radioOrder = findViewById(R.id.radioOrder);
+        radioGet = findViewById(R.id.radioYes);
+        radioOrder = findViewById(R.id.radioNo);
 
 
         Intent iGet = getIntent();
