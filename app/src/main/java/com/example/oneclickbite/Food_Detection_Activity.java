@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -35,6 +36,7 @@ public class Food_Detection_Activity extends AppCompatActivity {
            byte[] bImageArrayGet = iGet.getByteArrayExtra("image");
            Bitmap imgGet = BitmapFactory.decodeByteArray(bImageArrayGet, 0, bImageArrayGet.length);
            FoodImg.setImageBitmap(imgGet);
+            Log.d("Food orient", String.valueOf(FoodImg.getRotation()));
         }
         radioYes.setOnClickListener(new View.OnClickListener() {
             @Override

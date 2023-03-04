@@ -3,24 +3,34 @@ package com.example.oneclickbite;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.content.FileProvider;
 
 import android.content.ClipData;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     private final int CAMERA_REQ_CODE = 100;
     private final int GALLERY_REQ_CODE = 200;
+    File camFile = null;
     ImageView img;
     Bitmap img1;
     AppCompatButton btnCamera, btnGallery, btnDetect;
@@ -38,8 +48,17 @@ public class MainActivity extends AppCompatActivity {
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent imgCam =new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(imgCam, CAMERA_REQ_CODE);
+                Intent imgCam = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                try {
+                    camFile = createCamFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (camFile != null) {
+                    Uri camUri = FileProvider.getUriForFile(MainActivity.this, "com.example.oneclickbite.fileprovider", camFile);
+                    imgCam.putExtra(MediaStore.EXTRA_OUTPUT, camUri);
+                    startActivityForResult(imgCam, CAMERA_REQ_CODE);
+                }
             }
         });
 
@@ -58,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 if (img1 != null) {
                     Intent iDetect = new Intent(MainActivity.this, Food_Detection_Activity.class);
                     ByteArrayOutputStream bImage = new ByteArrayOutputStream();
-                    img1.compress(Bitmap.CompressFormat.JPEG, 100, bImage);
+                    img1.compress(Bitmap.CompressFormat.JPEG, 70, bImage);
                     byte[] bImageArray = bImage.toByteArray();
                     iDetect.putExtra("image", bImageArray);
                     startActivity(iDetect);
@@ -69,6 +88,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private File createCamFile() throws IOException{
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String camImageName = "JPEG_" + timeStamp + "_";
+        File camDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        camFile = File.createTempFile(camImageName, ".jpg", camDir);
+        return camFile;
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -76,9 +103,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(resultCode == RESULT_OK){
             if(requestCode == CAMERA_REQ_CODE){
-                // For Camera
-                Bundle extras = data.getExtras();
-                img1 = (Bitmap) extras.get("data");
+                img1 = BitmapFactory.decodeFile(camFile.getAbsolutePath());
                 img.setImageBitmap(img1);
             }
             else if (requestCode == GALLERY_REQ_CODE) {
@@ -92,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
-//                img.setImageURI(data.getData());
             }
         }
     }

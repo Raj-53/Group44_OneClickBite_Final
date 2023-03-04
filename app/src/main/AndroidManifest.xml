@@ -11,8 +11,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OneClickBite"
         tools:targetApi="31">
+        <provider
+            android:authorities="com.example.oneclickbite.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+
+        </provider>
+        
+        
         <activity
             android:name=".Splash"
+            android:theme="@style/Theme.Design.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
