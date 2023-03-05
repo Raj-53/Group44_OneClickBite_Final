@@ -24,6 +24,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -77,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 if (img1 != null) {
                     Intent iDetect = new Intent(MainActivity.this, Food_Detection_Activity.class);
                     ByteArrayOutputStream bImage = new ByteArrayOutputStream();
-                    img1.compress(Bitmap.CompressFormat.JPEG, 70, bImage);
+                    img1.compress(Bitmap.CompressFormat.JPEG, 50, bImage);
                     byte[] bImageArray = bImage.toByteArray();
                     iDetect.putExtra("image", bImageArray);
                     startActivity(iDetect);
@@ -103,7 +104,9 @@ public class MainActivity extends AppCompatActivity {
 
         if(resultCode == RESULT_OK){
             if(requestCode == CAMERA_REQ_CODE){
-                img1 = BitmapFactory.decodeFile(camFile.getAbsolutePath());
+                BitmapFactory.Options option = new BitmapFactory.Options();
+                option.inSampleSize = 2;
+                img1 = BitmapFactory.decodeFile(camFile.getAbsolutePath(), option);
                 img.setImageBitmap(img1);
             }
             else if (requestCode == GALLERY_REQ_CODE) {
@@ -111,7 +114,11 @@ public class MainActivity extends AppCompatActivity {
                 if(data != null && data.getData() != null) {
                     Uri imgUri = data.getData();
                     try {
-                        img1 = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imgUri);
+                        InputStream in = getContentResolver().openInputStream(imgUri);
+                        BitmapFactory.Options option = new BitmapFactory.Options();
+                        option.inSampleSize = 2;
+                        img1 = BitmapFactory.decodeStream(in, null, option);
+//                        img1 = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imgUri, option);
                         img.setImageBitmap(img1);
                     } catch (IOException e) {
                         e.printStackTrace();
