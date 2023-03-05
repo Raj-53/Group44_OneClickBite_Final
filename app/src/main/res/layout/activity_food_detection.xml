@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_styling"
     tools:context=".Food_Detection_Activity">
 
 
@@ -46,28 +47,6 @@
         app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="@+id/cardView"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
-    <!--    <Button-->
-<!--        android:id="@+id/cook"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="24dp"-->
-<!--        android:layout_marginBottom="40dp"-->
-<!--        android:text="Cook Food"-->
-<!--        android:visibility="invisible"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
-
-<!--    <Button-->
-<!--        android:id="@+id/order"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginEnd="24dp"-->
-<!--        android:layout_marginBottom="40dp"-->
-<!--        android:text="Order Food"-->
-<!--        android:visibility="invisible"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent" />-->
 
     <TextView
         android:id="@+id/txtCorrect"
