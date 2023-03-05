@@ -1,5 +1,6 @@
 package com.example.oneclickbite;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -17,6 +18,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -31,6 +33,7 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
     private final int CAMERA_REQ_CODE = 100;
     private final int GALLERY_REQ_CODE = 200;
+    private static final String IMAGE_KEY = "img_key";
     File camFile = null;
     ImageView img;
     Bitmap img1;
@@ -41,10 +44,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        img = findViewById(R.id.img);
-        btnCamera = findViewById(R.id.btnCamera);
-        btnGallery = findViewById(R.id.btnGallery);
-        btnDetect = findViewById(R.id.btnDetect);
+        img = (ImageView) findViewById(R.id.img);
+        btnCamera = (AppCompatButton) findViewById(R.id.btnCamera);
+        btnGallery = (AppCompatButton) findViewById(R.id.btnGallery);
+        btnDetect = (AppCompatButton) findViewById(R.id.btnDetect);
+
+        if(savedInstanceState != null){
+            byte[] imgData = savedInstanceState.getByteArray(IMAGE_KEY);
+            if(imgData != null){
+                img1 = BitmapFactory.decodeByteArray(imgData, 0, imgData.length);
+                img.setImageBitmap(img1);
+            }
+        }
 
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +108,38 @@ public class MainActivity extends AppCompatActivity {
         return camFile;
     }
 
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if(img1 != null){
+            ByteArrayOutputStream bImage = new ByteArrayOutputStream();
+            img1.compress(Bitmap.CompressFormat.JPEG, 50, bImage);
+            byte[] bImageArray = bImage.toByteArray();
+            outState.putByteArray(IMAGE_KEY, bImageArray);
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        byte[] imgData = savedInstanceState.getByteArray(IMAGE_KEY);
+        if (imgData != null) {
+            img1 = BitmapFactory.decodeByteArray(imgData, 0, imgData.length);
+            img.setImageBitmap(img1);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        finish();
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -105,20 +148,19 @@ public class MainActivity extends AppCompatActivity {
         if(resultCode == RESULT_OK){
             if(requestCode == CAMERA_REQ_CODE){
                 BitmapFactory.Options option = new BitmapFactory.Options();
-                option.inSampleSize = 2;
+                option.inSampleSize = 4;
                 img1 = BitmapFactory.decodeFile(camFile.getAbsolutePath(), option);
                 img.setImageBitmap(img1);
             }
             else if (requestCode == GALLERY_REQ_CODE) {
                 // For Gallery
                 if(data != null && data.getData() != null) {
-                    Uri imgUri = data.getData();
+                    Uri imgUri = (Uri) data.getData();
                     try {
                         InputStream in = getContentResolver().openInputStream(imgUri);
                         BitmapFactory.Options option = new BitmapFactory.Options();
-                        option.inSampleSize = 2;
+                        option.inSampleSize = 4;
                         img1 = BitmapFactory.decodeStream(in, null, option);
-//                        img1 = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imgUri, option);
                         img.setImageBitmap(img1);
                     } catch (IOException e) {
                         e.printStackTrace();

@@ -34,7 +34,7 @@
         </activity>
         <activity
             android:name=".Food_Detection_Activity"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
