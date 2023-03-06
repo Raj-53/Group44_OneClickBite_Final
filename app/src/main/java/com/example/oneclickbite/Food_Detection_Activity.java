@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -48,6 +49,7 @@ public class Food_Detection_Activity extends AppCompatActivity {
                 FragmentTransaction ftOrder = fmOrder.beginTransaction();
                 ftOrder.add(R.id.orderContainer, new OrderFragment()).commit();
                 radioNo.setChecked(false);
+
             }
         });
         radioNo.setOnClickListener(new View.OnClickListener() {

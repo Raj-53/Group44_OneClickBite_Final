@@ -1,5 +1,7 @@
 package com.example.oneclickbite;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -65,6 +67,17 @@ public class OrderFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_order, container, false);
         btnCook = view.findViewById(R.id.btnCook);
         btnOrder = view.findViewById(R.id.btnOrder);
+        btnOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent();
+                i.setAction(Intent.ACTION_VIEW);
+                i.setClassName("com.application.zomato",
+                        "com.application.zomato.activities.Splash");
+
+                startActivity(i);
+            }
+        });
 
         return view;
 
