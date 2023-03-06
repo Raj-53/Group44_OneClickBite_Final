@@ -105,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE);
+        else if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT);
     }
 
     @Override
@@ -132,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
 
-        finish();
+        finishAffinity();
     }
 
     @Override
@@ -140,16 +142,20 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(resultCode == RESULT_OK){
-            if(requestCode == CAMERA_REQ_CODE){
-                BitmapFactory.Options option = new BitmapFactory.Options();
-                option.inSampleSize = 4;
-                img1 = BitmapFactory.decodeFile(camFile.getAbsolutePath(), option);
-                img.setImageBitmap(img1);
+            if(requestCode == CAMERA_REQ_CODE) {
+                if (camFile != null) {
+                    BitmapFactory.Options option = new BitmapFactory.Options();
+                    option.inSampleSize = 4;
+                    img1 = BitmapFactory.decodeFile(camFile.getAbsolutePath(), option);
+                    img.setImageBitmap(img1);
+                }else{
+                    Toast.makeText(this, "Unable to Retrive, Please Try again", Toast.LENGTH_SHORT).show();
+                }
             }
             else if (requestCode == GALLERY_REQ_CODE) {
                 // For Gallery
                 if(data != null && data.getData() != null) {
-                    Uri imgUri = (Uri) data.getData();
+                    Uri imgUri = data.getData();
                     try {
                         InputStream in = getContentResolver().openInputStream(imgUri);
                         BitmapFactory.Options option = new BitmapFactory.Options();

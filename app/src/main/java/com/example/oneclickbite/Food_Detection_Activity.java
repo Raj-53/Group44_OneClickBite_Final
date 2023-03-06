@@ -55,6 +55,7 @@ public class Food_Detection_Activity extends AppCompatActivity {
             public void onClick(View view) {
                     Toast.makeText(Food_Detection_Activity.this, "Please Capture/Select the image again", Toast.LENGTH_SHORT).show();
                     Intent temp = new Intent(Food_Detection_Activity.this, MainActivity.class);
+                    temp.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(temp);
             }
         });
