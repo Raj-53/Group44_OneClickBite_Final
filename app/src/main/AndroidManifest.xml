@@ -25,7 +25,7 @@
         
         <activity
             android:name=".Splash"
-            android:theme="@style/Theme.Design.NoActionBar"
+            android:theme="@style/Theme.Design.Light.NoActionBar"
             android:configChanges="orientation"
             android:exported="true">
             <intent-filter>
@@ -35,12 +35,12 @@
         </activity>
         <activity
             android:name=".Food_Detection_Activity"
-            android:theme="@style/Theme.Design.NoActionBar"
+            android:theme="@style/Theme.Design.Light.NoActionBar"
             android:configChanges="orientation"
             android:exported="false"/>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.Design.NoActionBar"
+            android:theme="@style/Theme.Design.Light.NoActionBar"
             android:configChanges="orientation"
             android:exported="true">
         </activity>

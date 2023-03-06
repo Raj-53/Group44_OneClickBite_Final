@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String camImageName = "JPEG_" + timeStamp + "_";
         File camDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        camFile = File.createTempFile(camImageName, ".jpg", camDir);
+        camFile = File.createTempFile(camImageName, ".jpeg", camDir);
         return camFile;
     }
 
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                     img1 = BitmapFactory.decodeFile(camFile.getAbsolutePath(), option);
                     img.setImageBitmap(img1);
                 }else{
-                    Toast.makeText(this, "Unable to Retrive, Please Try again", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Unable to Retrieve, Please Try again", Toast.LENGTH_SHORT).show();
                 }
             }
             else if (requestCode == GALLERY_REQ_CODE) {
