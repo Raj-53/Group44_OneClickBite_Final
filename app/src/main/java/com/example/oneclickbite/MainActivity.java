@@ -13,9 +13,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.oneclickbite.ml.Model;
+
+import org.tensorflow.lite.support.image.TensorImage;
+import org.tensorflow.lite.support.label.Category;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -23,6 +29,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private final int CAMERA_REQ_CODE = 100;
@@ -32,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView img;
     Bitmap img1;
     AppCompatButton btnCamera, btnGallery, btnDetect;
+
+    private Double max = 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,14 +93,69 @@ public class MainActivity extends AppCompatActivity {
                     Intent iDetect = new Intent(MainActivity.this, Food_Detection_Activity.class);
                     ByteArrayOutputStream bImage = new ByteArrayOutputStream();
                     img1.compress(Bitmap.CompressFormat.JPEG, 50, bImage);
+                    String detected_food_label = classifyImage(img1);
                     byte[] bImageArray = bImage.toByteArray();
                     iDetect.putExtra("image", bImageArray);
+                    iDetect.putExtra("food_label",detected_food_label);
                     startActivity(iDetect);
                 } else {
                     Toast.makeText(MainActivity.this, "Please Capture/Select an Image", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    private String classifyImage(Bitmap image) {
+        try {
+            Model model = Model.newInstance(getApplicationContext());
+
+            // Creates inputs for reference.
+            TensorImage img = TensorImage.fromBitmap(image);
+
+            // Runs model inference and gets result.
+            Model.Outputs outputs = model.process(img);
+            List<Category> probability = outputs.getProbabilityAsCategoryList();
+//            Log.i("MYLOG", probability.get(0).toString());
+            // Releases model resources if no longer used.
+            model.close();
+
+            String result_label = "";
+
+            for (int i = 0; i < 45; i++) {
+                String s = probability.get(i).toString();
+
+                // Extract category name
+                String category_name = s.split("\"")[1];
+                category_name = capitalizeWords(category_name);
+
+                // Extract score
+                Double score = Double.parseDouble(s.split("=")[2].replaceAll("[^\\d.]", ""));
+
+                if(max < score){
+                    max = score;
+                    result_label = category_name;
+//                    Log.i("MYLOG","Max : " + max);
+                }
+
+            }
+
+            return result_label;
+
+    } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String capitalizeWords(String str) {
+        String[] words = str.split("_");
+        StringBuilder sb = new StringBuilder();
+        for (String word : words) {
+            sb.append(word.substring(0, 1).toUpperCase());
+            sb.append(word.substring(1));
+            sb.append(" ");
+        }
+        sb.deleteCharAt(sb.length() - 1);  // Remove the last underscore
+        return sb.toString();
     }
 
     private File createCamFile() throws IOException{

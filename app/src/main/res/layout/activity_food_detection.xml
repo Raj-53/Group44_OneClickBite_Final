@@ -34,7 +34,7 @@
         android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Detected Food label"
+        android:hint="Detected as : "
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="20sp"

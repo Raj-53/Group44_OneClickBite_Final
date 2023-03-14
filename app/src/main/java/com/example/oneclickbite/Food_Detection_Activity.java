@@ -25,6 +25,8 @@ public class Food_Detection_Activity extends AppCompatActivity {
     TextView txtLabel;
     RadioButton radioYes, radioNo;
     Bitmap imgGet;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,14 @@ public class Food_Detection_Activity extends AppCompatActivity {
            FoodImg.setImageBitmap(imgGet);
             Log.d("Food orient", String.valueOf(FoodImg.getRotation()));
         }
+
+        // getting detected food label
+        if(iGet.hasExtra("food_label")){
+            String detected_food_label = iGet.getStringExtra("food_label");
+            txtLabel.setText("Food detected as : " + detected_food_label);
+
+        }
+
         radioYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
