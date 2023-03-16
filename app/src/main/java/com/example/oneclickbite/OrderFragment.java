@@ -80,11 +80,11 @@ public class OrderFragment extends Fragment {
                 }
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
-//                i.setAction(Intent.ACTION_VIEW);
-//                i.setClassName("com.application.zomato",
-//                        "com.application.zomato.activities.Splash");
-//
-//                startActivity(i);
+                i.setAction(Intent.ACTION_VIEW);
+                i.setClassName("com.application.zomato",
+                        "com.application.zomato.activities.Splash");
+
+                startActivity(i);
             }
         });
 
