@@ -9,11 +9,12 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="391dp"
-        android:layout_height="393dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:cardCornerRadius="15dp"
-        app:cardElevation="10dp"
+        app:cardElevation="12dp"
+        app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,8 +22,8 @@
 
         <ImageView
             android:id="@+id/FoodImg"
-            android:layout_width="359dp"
-            android:layout_height="357dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:scaleType="fitXY"
             android:src="@drawable/select_food" />
 
@@ -31,30 +32,28 @@
 
     <TextView
         android:id="@+id/txtLabel"
-        android:layout_width="270dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Detected as : "
+        android:hint="@string/tvHint"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/cardView"
-        app:layout_constraintHorizontal_bias="0.471"
-        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <TextView
         android:id="@+id/txtCorrect"
-        android:layout_width="270dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Is It Correct?"
+        android:hint="@string/tvHint1"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/txtLabel"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLabel" />
 
     <RadioGroup
@@ -63,35 +62,34 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/orderContainer"
-        app:layout_constraintEnd_toEndOf="@+id/txtCorrect"
-        app:layout_constraintHorizontal_bias="0.455"
-        app:layout_constraintStart_toStartOf="@+id/txtCorrect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCorrect"
-        app:layout_constraintVertical_bias="0.428">
+        app:layout_constraintVertical_bias="0.425">
 
         <RadioButton
             android:id="@+id/radioYes"
             android:layout_width="104dp"
             android:layout_height="37dp"
-            android:layout_marginLeft="10dp"
+            android:layout_margin="10dp"
             android:layout_marginVertical="10dp"
-            android:text="Yes" />
+            android:text="@string/rYes" />
 
         <RadioButton
             android:id="@+id/radioNo"
             android:layout_width="104dp"
             android:layout_height="37dp"
             android:layout_marginVertical="10dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="10dp"
-            android:text="No" />
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/rNo" />
 
     </RadioGroup>
 
     <FrameLayout
         android:id="@+id/orderContainer"
-        android:layout_width="335dp"
-        android:layout_height="117dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"

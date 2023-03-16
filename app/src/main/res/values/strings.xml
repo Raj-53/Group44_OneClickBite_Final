@@ -2,4 +2,13 @@
     <string name="app_name">OneClickBite</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tvHint">Detected as:</string>
+    <string name="tvHint1">Is it Correct?</string>
+    <string name="rYes">Yes</string>
+    <string name="rNo">No</string>
+    <string name="cook">Cook Food</string>
+    <string name="order">Order Food</string>
+    <string name="Camera">Camera</string>
+    <string name="Detect">Detect</string>
+    <string name="Gallery">Gallery</string>
 </resources>

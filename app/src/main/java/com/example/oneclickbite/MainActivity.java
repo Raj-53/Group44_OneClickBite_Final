@@ -27,13 +27,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private final int CAMERA_REQ_CODE = 100;
-    private final int GALLERY_REQ_CODE = 200;
+    private static final int CAMERA_REQ_CODE = 100;
+    private static final int GALLERY_REQ_CODE = 200;
     private static final String IMAGE_KEY = "img_key";
     File camFile = null;
     ImageView img;
@@ -205,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(resultCode == RESULT_OK){
             if(requestCode == CAMERA_REQ_CODE) {
-                if (camFile != null) {
+                if (camFile != null && camFile.exists() && isImageFile(camFile)) {
                     BitmapFactory.Options option = new BitmapFactory.Options();
                     option.inSampleSize = 4;
                     img1 = BitmapFactory.decodeFile(camFile.getAbsolutePath(), option);
@@ -230,5 +231,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+    private boolean isImageFile(File file) {
+        String mimeType = URLConnection.guessContentTypeFromName(file.getName());
+        return mimeType != null && mimeType.startsWith("image");
     }
 }
