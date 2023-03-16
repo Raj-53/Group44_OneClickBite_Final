@@ -2,6 +2,7 @@ package com.example.oneclickbite;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -70,12 +73,18 @@ public class OrderFragment extends Fragment {
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent();
-                i.setAction(Intent.ACTION_VIEW);
-                i.setClassName("com.application.zomato",
-                        "com.application.zomato.activities.Splash");
-
+                PackageManager pm =  requireActivity().getPackageManager();
+                Intent i = pm.getLaunchIntentForPackage("com.application.zomato");
+                if (i == null) {
+                    i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.application.zomato"));
+                }
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
+//                i.setAction(Intent.ACTION_VIEW);
+//                i.setClassName("com.application.zomato",
+//                        "com.application.zomato.activities.Splash");
+//
+//                startActivity(i);
             }
         });
 
