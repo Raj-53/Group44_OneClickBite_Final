@@ -81,6 +81,7 @@ public class OrderFragment extends Fragment {
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(i);
                 i.setAction(Intent.ACTION_VIEW);
+                //for else
                 i.setClassName("com.application.zomato",
                         "com.application.zomato.activities.Splash");
 
