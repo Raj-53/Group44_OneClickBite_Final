@@ -73,19 +73,73 @@ public class OrderFragment extends Fragment {
         btnOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PackageManager pm =  requireActivity().getPackageManager();
-                Intent i = pm.getLaunchIntentForPackage("com.application.zomato");
-                if (i == null) {
-                    i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.application.zomato"));
+                PackageManager pm = requireActivity().getPackageManager();
+//                check if zomato is installed
+                Intent iZomato = pm.getLaunchIntentForPackage("com.application.zomato");
+                if (iZomato == null) {
+                    // zomato app is not installed, open the play store for download
+                    iZomato = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.application.zomato"));
                 }
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(i);
-                i.setAction(Intent.ACTION_VIEW);
-                //for else
-                i.setClassName("com.application.zomato",
-                        "com.application.zomato.activities.Splash");
+                //check if Uber Eats is installed
+                Intent iUber = pm.getLaunchIntentForPackage("com.ubercab.eats");
+                if (iUber == null) {
+                    // Uber Eats app is not installed, open the play store for download
+                    iUber = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.ubercab.eats"));
+                }
 
-                startActivity(i);
+                // check if swiggy is installed
+                Intent iSwiggy = pm.getLaunchIntentForPackage("in.swiggy.android");
+                if (iSwiggy == null) {
+                    iSwiggy = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=in.swiggy.android"));
+                }
+
+                // create a chooser with zomato and swiggy as options
+                Intent choose = Intent.createChooser(iZomato, "Choose an app to order food: ");
+                choose.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{iSwiggy, iUber});
+                choose.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(choose);
+
+            }
+        });
+
+        btnCook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PackageManager pm =  requireActivity().getPackageManager();
+                //check if Blinkit is installed
+                Intent iBlinkit = pm.getLaunchIntentForPackage("com.grofers.customerapp");
+                if (iBlinkit == null) {
+                    // Blinkit app is not installed, open the play store for download
+                    iBlinkit = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.grofers.customerapp"));
+                }
+
+                //check if Big Basket is installed
+                Intent iBasket = pm.getLaunchIntentForPackage("com.bigbasket.mobileapp");
+                if (iBasket == null) {
+                    // Big Basket app is not installed, open the play store for download
+                    iBasket = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.bigbasket.mobileapp"));
+                }
+
+                //check if Amazon is installed
+                Intent iAmazon = pm.getLaunchIntentForPackage("in.amazon.mShop.android.shopping");
+                if (iAmazon == null) {
+                    // Amazon app is not installed, open the play store for download
+                    iAmazon = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=in.amazon.mShop.android.shopping"));
+                }
+
+
+                //check if Flipkart is installed
+                Intent iFlip = pm.getLaunchIntentForPackage("com.flipkart.android");
+                if (iFlip == null) {
+                    // Flipkart app is not installed, open the play store for download
+                    iFlip = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.flipkart.android"));
+                }
+
+                // create a chooser with Blinkit, flipkart and Big Basket as options
+                Intent choose = Intent.createChooser(iBlinkit, "Choose an app to order Ingredients: ");
+                choose.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {iBasket, iFlip, iAmazon });
+                choose.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(choose);
             }
         });
 
