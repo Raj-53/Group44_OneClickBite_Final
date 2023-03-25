@@ -2,6 +2,7 @@ package com.example.oneclickbite;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -12,6 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.bumptech.glide.Glide;
+
 import java.util.Objects;
 
 /**
@@ -20,6 +23,7 @@ import java.util.Objects;
  * create an instance of this fragment.
  */
 public class OrderFragment extends Fragment {
+    Intent iZomato, iSwiggy;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,7 +79,7 @@ public class OrderFragment extends Fragment {
             public void onClick(View view) {
                 PackageManager pm = requireActivity().getPackageManager();
 //                check if zomato is installed
-                Intent iZomato = pm.getLaunchIntentForPackage("com.application.zomato");
+                iZomato = pm.getLaunchIntentForPackage("com.application.zomato");
                 if (iZomato == null) {
                     // zomato app is not installed, open the play store for download
                     iZomato = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.application.zomato"));
@@ -85,19 +89,24 @@ public class OrderFragment extends Fragment {
                 }
 
                 // check if Swiggy is installed
-                Intent iSwiggy = pm.getLaunchIntentForPackage("in.swiggy.android");
+                iSwiggy = pm.getLaunchIntentForPackage("in.swiggy.android");
                 if (iSwiggy == null) {
                     iSwiggy = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=in.swiggy.android"));
                 }else{
                     iSwiggy.setPackage("in.swiggy.android");
                 }
 
-                // create a chooser with zomato,Uber eats and swiggy as options
-                Intent choose = Intent.createChooser(iZomato, "Choose an app to order food: ");
+                Intent choose;
+                if(iZomato == null & iSwiggy == null) {
+                    // create a chooser with zomato,Uber eats and swiggy as options
+                    choose = new Intent(Intent.ACTION_VIEW);
+                    choose.setData(Uri.parse("https://play.google.com/store/search?q=zomato+swiggy"));
+                }else{
+                choose = Intent.createChooser(iZomato, "Choose an app to order food: ");
                 choose.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{iSwiggy});
+                }
                 choose.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(choose);
-
             }
         });
 
