@@ -13,23 +13,23 @@
             android:layout_margin="20dp"
             android:orientation="vertical"
             android:layout_gravity="center">
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnCook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_styling"
-            android:text="@string/cook"
-            android:layout_margin="3dp"
-            android:textStyle="bold" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_styling"
+                android:text="@string/cook"
+                android:layout_margin="3dp"
+                android:textStyle="bold" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnOrder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_styling"
-            android:text="@string/order"
-            android:layout_margin="3dp"
-            android:textStyle="bold"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_styling"
+                android:text="@string/order"
+                android:layout_margin="3dp"
+                android:textStyle="bold"/>
         </LinearLayout>
 
     </ScrollView>

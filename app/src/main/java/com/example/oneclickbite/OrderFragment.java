@@ -79,23 +79,22 @@ public class OrderFragment extends Fragment {
                 if (iZomato == null) {
                     // zomato app is not installed, open the play store for download
                     iZomato = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.application.zomato"));
-                }
-                //check if Uber Eats is installed
-                Intent iUber = pm.getLaunchIntentForPackage("com.ubercab.eats");
-                if (iUber == null) {
-                    // Uber Eats app is not installed, open the play store for download
-                    iUber = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.ubercab.eats"));
+                }else{
+                    // zomato is already installed
+                    iZomato.setPackage("com.application.zomato");
                 }
 
-                // check if swiggy is installed
+                // check if Swiggy is installed
                 Intent iSwiggy = pm.getLaunchIntentForPackage("in.swiggy.android");
                 if (iSwiggy == null) {
                     iSwiggy = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=in.swiggy.android"));
+                }else{
+                    iSwiggy.setPackage("in.swiggy.android");
                 }
 
                 // create a chooser with zomato,Uber eats and swiggy as options
-                Intent choose = Intent.createChooser(iUber, "Choose an app to order food: ");
-                choose.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{iSwiggy, iZomato});
+                Intent choose = Intent.createChooser(iZomato, "Choose an app to order food: ");
+                choose.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{iSwiggy});
                 choose.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(choose);
 
