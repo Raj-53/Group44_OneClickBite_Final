@@ -23,7 +23,7 @@ import java.util.Objects;
  * create an instance of this fragment.
  */
 public class OrderFragment extends Fragment {
-    Intent iZomato, iSwiggy;
+    Intent iZomato, iSwiggy, iUber, choose;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -102,8 +102,8 @@ public class OrderFragment extends Fragment {
                     choose = new Intent(Intent.ACTION_VIEW);
                     choose.setData(Uri.parse("https://play.google.com/store/search?q=zomato+swiggy"));
                 }else{
-                choose = Intent.createChooser(iZomato, "Choose an app to order food: ");
-                choose.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{iSwiggy});
+                    choose = Intent.createChooser(iZomato, "Choose an app to order food: ");
+                    choose.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{iSwiggy});
                 }
                 choose.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(choose);
