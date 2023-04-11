@@ -28,7 +28,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/select_food" />
+                    android:contentDescription="@string/food_image"
+                    android:background="@drawable/select_food" />
 
             </androidx.cardview.widget.CardView>
         </LinearLayout>
