@@ -2,7 +2,6 @@ package com.example.oneclickbite;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -12,18 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
-import com.bumptech.glide.Glide;
-
-import java.util.Objects;
-
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link OrderFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class OrderFragment extends Fragment {
-    Intent iZomato, iSwiggy, iUber, choose;
+    Intent iZomato, iSwiggy, choose;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -96,21 +90,14 @@ public class OrderFragment extends Fragment {
                     iSwiggy.setPackage("in.swiggy.android");
                 }
 
-                Intent choose;
-                if(iZomato == null & iSwiggy == null) {
-                    // create a chooser with zomato,Uber eats and swiggy as options
-                    choose = new Intent(Intent.ACTION_VIEW);
-                    choose.setData(Uri.parse("https://play.google.com/store/search?q=zomato+swiggy"));
-                }else{
                     choose = Intent.createChooser(iZomato, "Choose an app to order food: ");
-                    choose.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{iSwiggy});
-                }
-                choose.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(choose);
+                    choose.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{iZomato, iSwiggy});
+                    choose.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(choose);
             }
         });
 
-        btnCook.setOnClickListener(new View.OnClickListener() {
+        btnCook.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

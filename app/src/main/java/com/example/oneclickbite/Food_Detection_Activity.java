@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,12 +23,14 @@ import android.widget.Toast;
 public class Food_Detection_Activity extends AppCompatActivity {
 
     private static final String IMG_DATA_KEY = "img_data_key";
+    private Uri imageUri;
     ImageView FoodImg;
     TextView txtLabel;
     RadioButton radioYes, radioNo;
     Bitmap imgGet;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,8 +85,8 @@ public class Food_Detection_Activity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        if(imgGet != null){
-            outState.putParcelable(IMG_DATA_KEY, imgGet);
+        if (imageUri != null) {
+            outState.putString(IMG_DATA_KEY, imageUri.toString());
         }
         outState.putBoolean("RadioYes", radioYes.isChecked());
         outState.putBoolean("RadioNo", radioNo.isChecked());
@@ -93,12 +97,22 @@ public class Food_Detection_Activity extends AppCompatActivity {
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        if(savedInstanceState.containsKey(IMG_DATA_KEY)){
-            imgGet = savedInstanceState.getParcelable(IMG_DATA_KEY);
-            FoodImg.setImageBitmap(imgGet);
+        if (savedInstanceState.containsKey(IMG_DATA_KEY)) {
+            imageUri = Uri.parse(savedInstanceState.getString(IMG_DATA_KEY));
+            if (imageUri != null) {
+                FoodImg.setImageURI(imageUri);
+            }
         }
         radioYes.setChecked(savedInstanceState.getBoolean("RadioYes"));
         radioNo.setChecked(savedInstanceState.getBoolean("RadioNo"));
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent temp = new Intent(Food_Detection_Activity.this, MainActivity.class);
+        temp.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(temp);
     }
 }

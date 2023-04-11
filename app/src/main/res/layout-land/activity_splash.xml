@@ -12,15 +12,18 @@
         android:id="@+id/txt1"
         android:layout_width="165dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="212dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="120dp"
         android:fontFamily="serif-monospace"
-        android:text="ONE"
+        android:text="@string/one"
         android:textColor="@color/black"
         android:textSize="50sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/txt2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/txt2"
@@ -29,14 +32,15 @@
         android:layout_marginStart="176dp"
         android:layout_marginEnd="84dp"
         android:fontFamily="serif-monospace"
-        android:text="CLICK"
+        android:text="@string/click"
         android:textColor="@color/black"
         android:textSize="50sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txt3"
@@ -45,15 +49,15 @@
         android:layout_marginStart="210dp"
         android:layout_marginEnd="4dp"
         android:fontFamily="serif-monospace"
-        android:text="BITE"
+        android:text="@string/bite"
         android:textColor="@color/black"
         android:textSize="50sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.089" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

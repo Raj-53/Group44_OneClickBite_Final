@@ -12,4 +12,8 @@
     <string name="Detect">Detect</string>
     <string name="Gallery">Gallery</string>
     <string name="img">Input Food image</string>
+    <string name="food_image">Food_image</string>
+    <string name="one">ONE</string>
+    <string name="click">CLICK</string>
+    <string name="bite">BITE</string>
 </resources>
