@@ -23,8 +23,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
     buildFeatures {
         mlModelBinding true
@@ -44,4 +44,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.15.0'
     implementation 'com.github.bumptech.glide:glide:4.15.1'
+    // jsoup HTML parser library @ https://jsoup.org/
+    implementation 'org.jsoup:jsoup:1.15.4'
+    // volley
+    implementation 'com.android.volley:volley:1.2.1'
 }

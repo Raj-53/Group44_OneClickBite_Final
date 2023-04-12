@@ -21,4 +21,5 @@
     <string name="get_text_recipe">Get Text Recipe</string>
     <string name="get_video_recipe">Get Video Recipe</string>
     <string name="what_do_you_wanna_cook_today">What do you wanna cook today?</string>
+    <string name="select_one_of_the_recipe">SELECT ONE OF THE RECIPES</string>
 </resources>
