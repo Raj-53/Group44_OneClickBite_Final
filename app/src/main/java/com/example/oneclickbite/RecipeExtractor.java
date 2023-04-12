@@ -380,7 +380,10 @@ public class RecipeExtractor {
         recipeCuisine = cuisine;
 
         Elements total_time = doc.getElementsByClass("css-8govpn");
-        String recipe_time = Objects.requireNonNull(total_time.get(2)).text();
+        String recipe_time = "";
+        if(total_time.size() >= 2) {
+            recipe_time = Objects.requireNonNull(total_time.get(2)).text();
+        }
 //        System.out.println("Recipe Time: "+recipe_time);
         recipeTime = recipe_time;
 
