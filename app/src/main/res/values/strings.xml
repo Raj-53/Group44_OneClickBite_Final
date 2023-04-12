@@ -10,10 +10,15 @@
     <string name="order">Order Food</string>
     <string name="Camera">Camera</string>
     <string name="Detect">Detect</string>
-    <string name="Gallery">Gallery</string>
+    <string name="Upload">Upload</string>
     <string name="img">Input Food image</string>
     <string name="food_image">Food_image</string>
     <string name="one">ONE</string>
     <string name="click">CLICK</string>
     <string name="bite">BITE</string>
+    <string name="food_item">Food Item</string>
+    <string name="a_one_stop_solution_for_your_food_craving">A one stop solution for your food craving!</string>
+    <string name="get_text_recipe">Get Text Recipe</string>
+    <string name="get_video_recipe">Get Video Recipe</string>
+    <string name="what_do_you_wanna_cook_today">What do you wanna cook today?</string>
 </resources>

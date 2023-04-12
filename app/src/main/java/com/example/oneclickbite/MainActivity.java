@@ -26,7 +26,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.oneclickbite.ml.Model;
 
 import org.tensorflow.lite.support.image.TensorImage;
@@ -34,10 +33,7 @@ import org.tensorflow.lite.support.label.Category;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -50,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     File camFile = null;
     String camFilePath, detected_food_label;
     ImageView img;
-    Bitmap bitmap1;
+    Bitmap img1;
     AppCompatButton btnCamera, btnGallery, btnDetect;
 
     private Double max = 0.0;
@@ -67,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState != null) {
             byte[] imgData = savedInstanceState.getByteArray(IMAGE_KEY);
-            if (imgData != null ) {
-                bitmap1 = BitmapFactory.decodeByteArray(imgData, 0, imgData.length);
-                img.setImageBitmap(bitmap1);
+        if (imgData != null && img1 != null) {
+                img1 = BitmapFactory.decodeByteArray(imgData, 0, imgData.length);
+                img.setImageBitmap(img1);
             }
         }
 
@@ -205,9 +201,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        if (img != null) {
-            img.setImageDrawable(null);
-        }
     }
 
     private File createCamFile() throws IOException{
@@ -221,11 +214,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        if(img != null && img.getDrawable() != null){
+        if(img != null && img.getDrawable() != null && img1 != null){
             BitmapDrawable drawable = (BitmapDrawable) img.getDrawable();
-            bitmap1 = drawable.getBitmap();
+            img1 = drawable.getBitmap();
             ByteArrayOutputStream bStream = new ByteArrayOutputStream();
-            bitmap1.compress(Bitmap.CompressFormat.JPEG, 100, bStream);
+            img1.compress(Bitmap.CompressFormat.JPEG, 100, bStream);
             byte[] byteArray = bStream.toByteArray();
             outState.putByteArray(IMAGE_KEY, byteArray);
         }
@@ -236,8 +229,8 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         byte[] imgData = savedInstanceState.getByteArray(IMAGE_KEY);
         if (imgData != null && img != null) {
-            bitmap1 = BitmapFactory.decodeByteArray(imgData, 0, imgData.length);
-            img.setImageBitmap(bitmap1);
+            img1 = BitmapFactory.decodeByteArray(imgData, 0, imgData.length);
+            img.setImageBitmap(img1);
         }
     }
 

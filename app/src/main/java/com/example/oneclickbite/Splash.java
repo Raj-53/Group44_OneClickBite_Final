@@ -1,49 +1,79 @@
 package com.example.oneclickbite;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class Splash extends AppCompatActivity {
-    TextView txt1, txt2, txt3;
+
+    TextView txtTitle1, txtTitle2, desTitle;
+    RelativeLayout relativeLayout;
+    Animation txtAnim, layoutAnim;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
 
-        txt1 = findViewById(R.id.txt1);
-        txt2 = findViewById(R.id.txt2);
-        txt3 = findViewById(R.id.txt3);
+        txtAnim = AnimationUtils.loadAnimation(Splash.this,R.anim.fall_down);
+        layoutAnim = AnimationUtils.loadAnimation(Splash.this,R.anim.bottom_to_top);
 
-        Animation anim1 = AnimationUtils.loadAnimation(Splash.this, R.anim.fade_in);
-        txt1.startAnimation(anim1);
-        txt2.startAnimation(anim1);
-        txt3.startAnimation(anim1);
 
+        //txtTitle1 = (TextView) findViewById(R.id.tv1);
+        txtTitle2 = (TextView) findViewById(R.id.tv2);
+        desTitle = (TextView) findViewById(R.id.tv3);
+        relativeLayout = (RelativeLayout) findViewById(R.id.relMain);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                relativeLayout.setVisibility(View.VISIBLE);
+                relativeLayout.setAnimation(layoutAnim);
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            //txtTitle1.setVisibility(View.VISIBLE);
+                            txtTitle2.setVisibility(View.VISIBLE);
+                            desTitle.setVisibility(View.VISIBLE);
+
+                            //txtTitle1.setAnimation(txtAnim);
+                            txtTitle2.setAnimation(txtAnim);
+                            desTitle.setAnimation(txtAnim);
+
+                        }
+                    },500);
+                }
+            }
+        },1000);
 
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent iHome = new Intent(Splash.this, MainActivity.class);
-                startActivity(iHome);
-                finish();
+
+                Intent intent = new Intent(Splash.this,MainActivity.class);
+                startActivity(intent);
+
             }
-        }, 2000);
+        },5000);
 
 
-    }
-
-    @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
     }
 }

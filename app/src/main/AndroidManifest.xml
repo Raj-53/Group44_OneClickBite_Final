@@ -4,7 +4,6 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
 
     <queries>
@@ -21,6 +20,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OneClickBite"
         tools:targetApi="31">
+
+        <activity
+            android:name=".VideoRecipeInstructions"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".RecipeInstructions"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".RecipeOption"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".VarietyActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+
         <provider
             android:authorities="com.example.oneclickbite.fileprovider"
             android:name="androidx.core.content.FileProvider"
@@ -50,6 +67,10 @@
             android:theme="@style/Theme.Design.Light.NoActionBar"
             android:exported="false">
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

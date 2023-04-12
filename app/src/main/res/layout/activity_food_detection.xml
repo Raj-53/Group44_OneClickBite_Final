@@ -27,9 +27,10 @@
                 android:id="@+id/FoodImg"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/img"
                 android:scaleType="fitXY"
-                android:src="@drawable/select_food"
-                android:contentDescription="@string/img" />
+                android:src="@drawable/cover"
+                tools:ignore="ImageContrastCheck" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
@@ -51,6 +52,7 @@
                 android:id="@+id/txtLabel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/alegreya_italic"
                 android:hint="@string/tvHint"
                 android:textAlignment="center"
                 android:textAllCaps="false"
@@ -62,6 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="@string/tvHint1"
+                android:fontFamily="@font/alegreya_italic"
                 android:textAlignment="center"
                 android:textAllCaps="false"
                 android:layout_margin="5dp"
@@ -79,13 +82,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:layout_weight="1.4"
+                android:layout_weight="1.3"
                 android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/radioYes"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/alegreya_italic"
                     android:layout_margin="30dp"
                     android:layout_weight="1"
                     android:text="@string/rYes" />
@@ -94,6 +98,7 @@
                     android:id="@+id/radioNo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:fontFamily="@font/alegreya_italic"
                     android:layout_margin="30dp"
                     android:layout_weight="1"
                     android:text="@string/rNo" />

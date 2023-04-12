@@ -28,6 +28,7 @@ public class Food_Detection_Activity extends AppCompatActivity {
     TextView txtLabel;
     RadioButton radioYes, radioNo;
     Bitmap imgGet;
+    String detected_food_label;
 
 
     @SuppressLint("SetTextI18n")
@@ -51,8 +52,32 @@ public class Food_Detection_Activity extends AppCompatActivity {
 
         // getting detected food label
         if(iGet.hasExtra("food_label")){
-            String detected_food_label = iGet.getStringExtra("food_label");
-            txtLabel.setText("Food detected as : " + detected_food_label);
+            detected_food_label = iGet.getStringExtra("food_label");
+
+            if(detected_food_label.contains("cake") || detected_food_label.contains("Cake")){
+                detected_food_label = "Cake";
+                txtLabel.setText("Food detected as : " + detected_food_label);
+            }else if(detected_food_label.contains("Spaghetti") || detected_food_label.contains("Lasagna") || detected_food_label.contains("Macaroni")){
+                detected_food_label = "Pasta";
+                txtLabel.setText("Food detected as : " + detected_food_label);
+            }else if(detected_food_label.contains("Salad")){
+                detected_food_label = "Salad";
+                txtLabel.setText("Food detected as : " + detected_food_label);
+            }else if(detected_food_label.contains("Soup")){
+                detected_food_label = "Soup";
+                txtLabel.setText("Food detected as : " + detected_food_label);
+            }else if(detected_food_label.contains("burger")){
+                detected_food_label = "Burger";
+                txtLabel.setText("Food detected as : " + detected_food_label);
+            }else if(detected_food_label.contains("Sandwich")){
+                detected_food_label = "Sandwich";
+                txtLabel.setText("Food detected as : " + detected_food_label);
+            }else if(detected_food_label.contains("Fish")){
+                detected_food_label = "fish";
+                txtLabel.setText("Food detected as : " + detected_food_label);
+            }else {
+                txtLabel.setText("Food detected as : " + detected_food_label);
+            }
 
         }
 
@@ -61,7 +86,11 @@ public class Food_Detection_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 FragmentManager fmOrder = getSupportFragmentManager();
                 FragmentTransaction ftOrder = fmOrder.beginTransaction();
-                ftOrder.add(R.id.orderContainer, new OrderFragment()).commit();
+
+                // Create a new instance of OrderFragment and set detected_food_label value
+                OrderFragment orderFragment = new OrderFragment();
+                orderFragment.setDetectedFoodLabel(detected_food_label);
+                ftOrder.add(R.id.orderContainer, orderFragment).commit();
                 radioNo.setChecked(false);
 
             }

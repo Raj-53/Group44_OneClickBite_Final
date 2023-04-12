@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link OrderFragment#newInstance} factory method to
@@ -18,6 +20,7 @@ import android.widget.Button;
  */
 public class OrderFragment extends Fragment {
     Intent iZomato, iSwiggy, choose;
+    String detected_food_label;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,6 +35,11 @@ public class OrderFragment extends Fragment {
 
     public OrderFragment() {
         // Required empty public constructor
+    }
+
+    // Setter method to set the detected_food_label value
+    public void setDetectedFoodLabel(String detected_food_label) {
+        this.detected_food_label = detected_food_label;
     }
 
     /**
@@ -100,6 +108,10 @@ public class OrderFragment extends Fragment {
         btnCook.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), VarietyActivity.class);
+                intent.putExtra("food",detected_food_label);
+                Toast.makeText(getActivity(), detected_food_label, Toast.LENGTH_SHORT).show();
+                startActivity(intent);
 
                 //Uncomment to add grocery apps
          // =====================================================================================
