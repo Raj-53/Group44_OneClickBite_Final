@@ -136,7 +136,7 @@ public class RecipeExtractor {
 
         Elements recipe_time = doc.getElementsByClass("tasty-recipes-total-time");
 //        System.out.println("Recipe Time: "+recipe_time.get(0).text());
-        recipeTime = String.valueOf(recipe_time);
+        recipeTime = recipe_time.get(0).text();
 
         Elements ingredients = doc.getElementsByClass("tasty-recipes-ingredients-body");
         Elements ingr_li = Objects.requireNonNull(ingredients.first()).getElementsByTag("li");
@@ -381,7 +381,7 @@ public class RecipeExtractor {
 
         Elements total_time = doc.getElementsByClass("css-8govpn");
         String recipe_time = "";
-        if(total_time.size() >= 2) {
+        if(total_time.size() > 2) {
             recipe_time = Objects.requireNonNull(total_time.get(2)).text();
         }
 //        System.out.println("Recipe Time: "+recipe_time);
