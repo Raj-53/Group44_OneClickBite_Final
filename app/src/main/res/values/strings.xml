@@ -22,4 +22,10 @@
     <string name="get_video_recipe">Get Video Recipe</string>
     <string name="what_do_you_wanna_cook_today">What do you wanna cook today?</string>
     <string name="select_one_of_the_recipe">SELECT ONE OF THE RECIPES</string>
+    <string name="in_english">In English</string>
+    <string name="in_hindi">In Hindi</string>
+    <string name="textview">TextView</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="steps">Steps</string>
+    <string name="order_ingredients">Order Ingredients</string>
 </resources>

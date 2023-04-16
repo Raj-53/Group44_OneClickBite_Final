@@ -1,15 +1,19 @@
 package com.example.oneclickbite;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -27,6 +31,7 @@ import java.util.ArrayList;
 public class RecipeDetail extends AppCompatActivity {
 
     RecipeExtractor recipeExtractor;
+    AppCompatButton btnIngredients;
     private TextView recipeTitleView, cuisineView, timeView;
 
     private String recipeTitle = "";
@@ -47,6 +52,7 @@ public class RecipeDetail extends AppCompatActivity {
         timeView = (TextView) findViewById(R.id.timeView);
         recView = (RecyclerView) findViewById(R.id.recView);
         recView2 = (RecyclerView) findViewById(R.id.recView2);
+        btnIngredients = findViewById(R.id.btnIngredients);
 
         // set layout manager for recycler view
         LinearLayoutManager llm1 = new LinearLayoutManager(getApplicationContext());
@@ -156,6 +162,34 @@ public class RecipeDetail extends AppCompatActivity {
 
             Volley.newRequestQueue(getApplicationContext()).add(stringRequest);
         }
+
+        btnIngredients.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                PackageManager pm =  getPackageManager();
+                //check if Blinkit is installed
+                Intent iBlinkit = pm.getLaunchIntentForPackage("com.grofers.customerapp");
+                if (iBlinkit == null) {
+                    // Blinkit app is not installed, open the play store for download
+                    iBlinkit = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.grofers.customerapp"));
+                }
+
+                //check if Zepto is installed
+                Intent iZepto = pm.getLaunchIntentForPackage("com.zeptoconsumerapp");
+                if (iZepto == null) {
+                    // Zepto app is not installed, open the play store for download
+                    iZepto = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.zeptoconsumerapp"));
+                }
+
+
+                Intent choose = Intent.createChooser(iBlinkit, "Choose an app to order Ingredients: ");
+                choose.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {iBlinkit, iZepto});
+                choose.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(choose);
+
+            }
+        });
 
     }
 }

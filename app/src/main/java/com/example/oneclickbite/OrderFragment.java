@@ -113,44 +113,7 @@ public class OrderFragment extends Fragment {
                 Toast.makeText(getActivity(), detected_food_label, Toast.LENGTH_SHORT).show();
                 startActivity(intent);
 
-                //Uncomment to add grocery apps
-         // =====================================================================================
-//                PackageManager pm =  requireActivity().getPackageManager();
-//                //check if Blinkit is installed
-//                Intent iBlinkit = pm.getLaunchIntentForPackage("com.grofers.customerapp");
-//                if (iBlinkit == null) {
-//                    // Blinkit app is not installed, open the play store for download
-//                    iBlinkit = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.grofers.customerapp"));
-//                }
-//
-//                //check if Big Basket is installed
-//                Intent iBasket = pm.getLaunchIntentForPackage("com.bigbasket.mobileapp");
-//                if (iBasket == null) {
-//                    // Big Basket app is not installed, open the play store for download
-//                    iBasket = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.bigbasket.mobileapp"));
-//                }
-//
-//                //check if Amazon is installed
-//                Intent iAmazon = pm.getLaunchIntentForPackage("in.amazon.mShop.android.shopping");
-//                if (iAmazon == null) {
-//                    // Amazon app is not installed, open the play store for download
-//                    iAmazon = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=in.amazon.mShop.android.shopping"));
-//                }
-//
-//
-//                //check if Flipkart is installed
-//                Intent iFlip = pm.getLaunchIntentForPackage("com.flipkart.android");
-//                if (iFlip == null) {
-//                    // Flipkart app is not installed, open the play store for download
-//                    iFlip = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.flipkart.android"));
-//                }
-//
-//                // create a chooser with Blinkit, flipkart and Big Basket as options
-//                Intent choose = Intent.createChooser(iBlinkit, "Choose an app to order Ingredients: ");
-//                choose.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] {iBasket, iFlip, iAmazon });
-//                choose.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                startActivity(choose);
-      // =========================================================================================
+
             }
         });
 

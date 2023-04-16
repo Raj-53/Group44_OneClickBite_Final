@@ -27,7 +27,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.oneclickbite.ml.Model;
-
 import org.tensorflow.lite.support.image.TensorImage;
 import org.tensorflow.lite.support.label.Category;
 
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState != null) {
             byte[] imgData = savedInstanceState.getByteArray(IMAGE_KEY);
-        if (imgData != null && img1 != null) {
+        if (imgData != null ) {
                 img1 = BitmapFactory.decodeByteArray(imgData, 0, imgData.length);
                 img.setImageBitmap(img1);
             }
