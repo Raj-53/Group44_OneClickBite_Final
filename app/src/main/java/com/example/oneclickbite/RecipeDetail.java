@@ -142,6 +142,9 @@ public class RecipeDetail extends AppCompatActivity {
 
                             // setting views
                             recipeTitleView.setText(recipeTitle);
+                            if(recipeCuisine.isEmpty()){
+                                recipeCuisine = "-";
+                            }
                             cuisineView.append(recipeCuisine);
                             timeView.append(recipeTime);
 

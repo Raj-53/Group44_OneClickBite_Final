@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:backgroundTint="#e36414"
+            android:backgroundTint="#9a031e"
             android:fontFamily="@font/montserrat"
             android:textSize="18sp"
             android:text="Recipe - 2" />
@@ -57,28 +57,6 @@
             android:fontFamily="@font/montserrat"
             android:textSize="18sp"
             android:text="Recipe - 3" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:backgroundTint="#9a031e"
-            android:fontFamily="@font/montserrat"
-            android:textSize="18sp"
-            android:text="Recipe - 4" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:backgroundTint="#5f0f40"
-            android:fontFamily="@font/montserrat"
-            android:textSize="18sp"
-            android:text="Recipe - 5" />
 
 
     </LinearLayout>
