@@ -60,7 +60,7 @@ public class RecipeInstructions extends AppCompatActivity {
         map1.put("cake", "red velvet cake");
         map1.put("cake", "chocolate cake");
         map1.put("cake", "carrot cake");
-        map1.put("cake", "strawberry cake");
+        map1.put("cake", "strawberry shortcake");
         map1.put("cake", "cheesecake");
         map1.put("pasta", "veg spaghetti");
         map1.put("pasta", "non-veg spaghetti");
@@ -85,13 +85,13 @@ public class RecipeInstructions extends AppCompatActivity {
         map1.put("fish", "fish");
         map1.put("sandwich", "sandwich");
         map1.put("ramen", "ramen");
-        map1.put("burrito", "burrito");
+        map1.put("breakfast burrito", "burrito");
         map1.put("omelette", "omelette");
         map1.put("pancakes", "pancakes");
         map1.put("french toast", "french toast");
         map1.put("onion rings", "onion rings");
         map1.put("pizza", "margherita pizza");
-        map1.put("pizza", "veggie pizza");
+        map1.put("pizza", "veg pizza");
         map1.put("pizza", "chicken pizza");
         map1.put("waffles", "waffles");
         map1.put("fried rice", "fried rice");
@@ -251,7 +251,7 @@ public class RecipeInstructions extends AppCompatActivity {
         urlList.add("https://natashaskitchen.com/crisp-onion-rings-recipe/");
         urlList.add("https://www.allrecipes.com/recipe/20942/beer-battered-onion-rings/");
         //margheritta pizza links-->
-        urlList.add("https://addapinch.com/margherita-pizza-recipe/");
+        urlList.add("https://www.allrecipes.com/recipe/133948/four-cheese-margherita-pizza/");
         urlList.add("https://www.allrecipes.com/recipe/222197/authentic-pizza-margherita/");
         urlList.add("https://www.allrecipes.com/recipe/275573/margherita-pizza-with-sausage-and-pesto/");
         //veggie pizza links-->
@@ -259,7 +259,7 @@ public class RecipeInstructions extends AppCompatActivity {
         urlList.add("https://natashaskitchen.com/california-pizza-recipe/");
         urlList.add("https://www.eitanbernath.com/2020/11/30/wild-mushroom-white-pizza/");
         //chicken pizza links-->
-        urlList.add("https://addapinch.com/chicken-artichoke-pizza-recipe/");
+        urlList.add("https://www.allrecipes.com/recipe/23735/buffalo-style-chicken-pizza/");
         urlList.add("https://natashaskitchen.com/chicken-pizza-with-creamy-garlic-sauce/");
         urlList.add("https://www.allrecipes.com/recipe/57243/chicken-pesto-pizza/");
         //waffles links-->

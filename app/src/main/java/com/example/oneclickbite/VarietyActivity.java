@@ -273,7 +273,7 @@ public class VarietyActivity extends AppCompatActivity {
 
             foodClassList.add(food1);
 
-        }else if(food.equalsIgnoreCase("burrito")){
+        }else if(food.equalsIgnoreCase("breakfast burrito")){
 
             // Populate the foodClassList with data, for example:
             foodClassList.clear();
