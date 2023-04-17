@@ -10,8 +10,8 @@
         android:layout_width="20dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:fontFamily="@font/playfair_display"
-        android:textSize="20sp" />
+        android:fontFamily="@font/open_sans_semibold"
+        android:textSize="14sp" />
 
     <View
         android:id="@+id/view"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:fontFamily="@font/dosis_extralight"
+        android:fontFamily="@font/montserrat"
         android:textSize="20sp" />
 
 </LinearLayout>

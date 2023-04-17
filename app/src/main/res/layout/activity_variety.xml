@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VarietyActivity">
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    tools:context=".VarietyActivity"
+    android:orientation="vertical">
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/what_do_you_wanna_cook_today"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
+        android:layout_marginTop="80dp"
+        android:textSize="28sp"
         android:gravity="center"
-        android:fontFamily="@font/alegreya_sans_sc_italic"/>
+        android:fontFamily="@font/open_sans"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rv"
         android:scrollbars="vertical"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="60dp"/>
 
-</RelativeLayout>
+</LinearLayout>

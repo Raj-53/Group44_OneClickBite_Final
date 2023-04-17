@@ -55,28 +55,22 @@ public class Food_Detection_Activity extends AppCompatActivity {
 
             if(detected_food_label.contains("cake") || detected_food_label.contains("Cake")){
                 detected_food_label = "Cake";
-                txtLabel.setText("Food detected as : " + detected_food_label);
+
             }else if(detected_food_label.contains("Spaghetti") || detected_food_label.contains("Lasagna") || detected_food_label.contains("Macaroni")){
                 detected_food_label = "Pasta";
-                txtLabel.setText("Food detected as : " + detected_food_label);
             }else if(detected_food_label.contains("Salad")){
                 detected_food_label = "Salad";
-                txtLabel.setText("Food detected as : " + detected_food_label);
             }else if(detected_food_label.contains("Soup")){
                 detected_food_label = "Soup";
-                txtLabel.setText("Food detected as : " + detected_food_label);
             }else if(detected_food_label.contains("burger")){
                 detected_food_label = "Burger";
-                txtLabel.setText("Food detected as : " + detected_food_label);
             }else if(detected_food_label.contains("Sandwich")){
                 detected_food_label = "Sandwich";
-                txtLabel.setText("Food detected as : " + detected_food_label);
             }else if(detected_food_label.contains("Fish")){
                 detected_food_label = "fish";
-                txtLabel.setText("Food detected as : " + detected_food_label);
-            }else {
-                txtLabel.setText("Food detected as : " + detected_food_label);
             }
+
+            txtLabel.setText("Food detected as : " + detected_food_label);
 
         }
 

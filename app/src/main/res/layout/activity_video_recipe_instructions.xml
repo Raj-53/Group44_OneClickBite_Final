@@ -16,7 +16,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/alegreya_italic"
+                    android:fontFamily="@font/open_sans_semibold"
                     android:gravity="center"
                     android:text="@string/in_hindi"
                     android:textColor="#827717"
@@ -30,6 +30,15 @@
                     app:enableAutomaticInitialization="true"
                     android:layout_margin="8dp" />
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white"
+            android:backgroundTint="#7C7A85" />
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -39,7 +48,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/alegreya_italic"
+                    android:fontFamily="@font/open_sans_semibold"
                     android:gravity="center"
                     android:text="@string/in_english"
                     android:textColor="#827717"

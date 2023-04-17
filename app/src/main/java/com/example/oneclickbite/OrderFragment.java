@@ -110,7 +110,7 @@ public class OrderFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), VarietyActivity.class);
                 intent.putExtra("food",detected_food_label);
-                Toast.makeText(getActivity(), detected_food_label, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), detected_food_label, Toast.LENGTH_SHORT).show();
                 startActivity(intent);
 
 

@@ -111,7 +111,13 @@ public class MainActivity extends AppCompatActivity {
                     int maxWidth = 1000;
                     int maxHeight = 1000;
                     Bitmap resizedBitmap = getResizedBitmap(bitmap, maxWidth, maxHeight);
+
                     detected_food_label = classifyImage(resizedBitmap);
+
+                    if (detected_food_label.isEmpty()) {
+                        Toast.makeText(MainActivity.this, "Please Capture/Select a new image", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     ByteArrayOutputStream bStream = new ByteArrayOutputStream();
                     resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bStream);
 
@@ -122,10 +128,11 @@ public class MainActivity extends AppCompatActivity {
                     iDetect.putExtra("image", byteArray);
                     iDetect.putExtra("food_label", detected_food_label);
                     startActivity(iDetect);
-                } else {
+                }else {
                     Toast.makeText(MainActivity.this, "Please Capture/Select an Image", Toast.LENGTH_SHORT).show();
                 }
             }
+
         });
     }
     public Bitmap getResizedBitmap(Bitmap bitmap, int maxWidth, int maxHeight) {
@@ -174,8 +181,15 @@ public class MainActivity extends AppCompatActivity {
                     result_label = category_name;
 //                    Log.i("MYLOG","Max : " + max);
                 }
-
             }
+            Log.i("MyLog","Final Score: " +max);
+
+            // if confidence_score is less than 20%
+            if(max < 0.20){
+                Log.i("MyLog","The confidence for the image is very low");
+                return "";
+            }
+
 
             return result_label;
 

@@ -4,23 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
     tools:context=".RecipeInstructions">
 
     <TextView
         android:id="@+id/heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/alegreya_sans_sc_italic"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/open_sans"
         android:gravity="center"
         android:text="@string/select_one_of_the_recipe"
-        android:textSize="20sp" />
+        android:textSize="28sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="40dp"
         android:orientation="vertical">
@@ -34,6 +36,7 @@
             android:backgroundTint="#0f4c5c"
             android:fontFamily="@font/montserrat"
             android:text="Recipe - 1"
+            android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
         <Button
@@ -45,6 +48,7 @@
             android:backgroundTint="#9a031e"
             android:fontFamily="@font/montserrat"
             android:textSize="20sp"
+            android:textColor="#FFFFFF"
             android:text="Recipe - 2" />
 
         <Button
@@ -56,6 +60,7 @@
             android:backgroundTint="#fb8b24"
             android:fontFamily="@font/montserrat"
             android:textSize="20sp"
+            android:textColor="#FFFFFF"
             android:text="Recipe - 3" />
 
 

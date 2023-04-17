@@ -18,13 +18,12 @@
         <TextView
             android:id="@+id/recipeTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/alegreya_sans_sc_italic"
-            android:foregroundGravity="center"
-            android:gravity="start"
+            android:fontFamily="@font/open_sans"
+            android:gravity="center"
             android:text="@string/textview"
-            android:textSize="30sp" />
+            android:textSize="34sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,18 +33,21 @@
 
             <TextView
                 android:id="@+id/cuisineView"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/playfair_display"
-                android:gravity="start"
+                android:gravity="center"
+                android:fontFamily="@font/open_sans"
                 android:text="@string/textview"
                 android:textSize="18sp" />
+
             <TextView
                 android:id="@+id/timeView"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:layout_marginStart="30dp"
-                android:fontFamily="@font/playfair_display"
+                android:gravity="center"
+                android:fontFamily="@font/open_sans"
                 android:text="@string/textview"
                 android:textSize="18sp" />
 
@@ -77,7 +79,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:gravity="center"
+                android:fontFamily="@font/open_sans_bold"
+                android:gravity="start"
                 android:text="@string/ingredients"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -94,7 +97,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"/>
 
         </LinearLayout>
 
@@ -109,8 +113,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:gravity="start"
                 android:text="@string/steps"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -127,7 +132,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recView2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"/>
 
         </LinearLayout>
 
@@ -137,13 +143,15 @@
         android:id="@+id/btnIngredients"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/order_ingredients"
+        android:layout_gravity="center"
+        android:padding="15dp"
         android:layout_margin="10dp"
         android:backgroundTint="#BF9000"
-        android:fontFamily="@font/alegreya_sans_sc"
+        android:fontFamily="@font/montserrat"
+        android:text="@string/order_ingredients"
         android:textColor="#5D4037"
-        android:textStyle="bold"
-        android:layout_gravity="center"/>
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 
 </LinearLayout>
