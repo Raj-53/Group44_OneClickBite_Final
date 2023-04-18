@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
             Log.i("MyLog","Final Score: " +max);
 
             // if confidence_score is less than 20%
-            if(max < 0.20){
+            if(max < 0.14){
                 Log.i("MyLog","The confidence for the image is very low");
                 return "";
             }
