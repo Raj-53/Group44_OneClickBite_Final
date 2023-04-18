@@ -140,7 +140,7 @@ public class VideoRecipeInstructions extends AppCompatActivity {
                         break;
                     }
                     case "Dumplings": {
-                        String videoId = "kJ18FBO92yc";
+                        String videoId = "15KOjftRo4Y";
                         youTubePlayer.loadVideo(videoId, 0);
                         break;
                     }
@@ -401,7 +401,7 @@ public class VideoRecipeInstructions extends AppCompatActivity {
                         break;
                     }
                     case "Dumplings": {
-                        String videoId = "15KOjftRo4Y";
+                        String videoId = "EKltq6jpFvk";
                         youTubePlayer.loadVideo(videoId, 0);
                         break;
                     }
