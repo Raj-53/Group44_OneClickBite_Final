@@ -85,7 +85,7 @@ public class VideoRecipeInstructions extends AppCompatActivity {
                         break;
                     }
                     case "Lasagna": {
-                        String videoId = "DhwGdJA-WiE&t=14s";
+                        String videoId = "DhwGdJA-WiE";
                         youTubePlayer.loadVideo(videoId, 0);
                         break;
                     }
@@ -125,7 +125,7 @@ public class VideoRecipeInstructions extends AppCompatActivity {
                         break;
                     }
                     case "Greek Salad": {
-                        String videoId = "DhwGdJA-WiE";
+                        String videoId = "7h07WErnV8M";
                         youTubePlayer.loadVideo(videoId, 0);
                         break;
                     }
@@ -165,7 +165,7 @@ public class VideoRecipeInstructions extends AppCompatActivity {
                         break;
                     }
                     case "Hot And Sour Soup": {
-                        String videoId = "aDQxH-KpCCc";
+                        String videoId = "DPFT-R2mr1A";
                         youTubePlayer.loadVideo(videoId, 0);
                         break;
                     }
@@ -401,7 +401,7 @@ public class VideoRecipeInstructions extends AppCompatActivity {
                         break;
                     }
                     case "Dumplings": {
-                        String videoId = "EKltq6jpFvk";
+                        String videoId = "15KOjftRo4Y";
                         youTubePlayer.loadVideo(videoId, 0);
                         break;
                     }
