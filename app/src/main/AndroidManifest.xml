@@ -18,7 +18,8 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/launcher_icon"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.OneClickBite"
@@ -30,7 +31,8 @@
         <activity
             android:name=".VideoRecipeInstructions"
             android:exported="false"
-            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"/>
+            android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".RecipeInstructions"
             android:exported="false"
@@ -57,7 +59,8 @@
         <activity
             android:name=".Splash"
             android:exported="true"
-            android:theme="@style/Theme.Design.Light.NoActionBar">
+            android:theme="@style/Theme.Design.Light.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

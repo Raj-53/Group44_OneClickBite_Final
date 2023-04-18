@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     detected_food_label = classifyImage(resizedBitmap);
 
                     if (detected_food_label.isEmpty()) {
-                        Toast.makeText(MainActivity.this, "Please Capture/Select a new image", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Detected item not in our database. Try something else!", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     ByteArrayOutputStream bStream = new ByteArrayOutputStream();
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                     iDetect.putExtra("food_label", detected_food_label);
                     startActivity(iDetect);
                 }else {
-                    Toast.makeText(MainActivity.this, "Please Capture/Select an Image", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Please Capture/Select an Image!", Toast.LENGTH_SHORT).show();
                 }
             }
 
