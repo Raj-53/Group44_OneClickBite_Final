@@ -53,7 +53,16 @@ public class Food_Detection_Activity extends AppCompatActivity {
         if(iGet.hasExtra("food_label")){
             detected_food_label = iGet.getStringExtra("food_label");
 
-            if(detected_food_label.contains("cake") || detected_food_label.contains("Cake")){
+            if(detected_food_label.equalsIgnoreCase("pancakes")){
+                detected_food_label = "Pancakes";
+                Log.i("cake",detected_food_label);
+                Toast.makeText(this, "Cake: "+detected_food_label, Toast.LENGTH_SHORT).show();
+            }else if(detected_food_label.equalsIgnoreCase("cup cakes")){
+                detected_food_label = "Cup Cake";
+                Log.i("cake",detected_food_label);
+                Toast.makeText(this, "Cake: "+detected_food_label, Toast.LENGTH_SHORT).show();
+
+            } else if(detected_food_label.contains("red") || detected_food_label.contains("chocolate") || detected_food_label.contains("carrot") || detected_food_label.contains("cheese") || detected_food_label.contains("Cake")) {
                 detected_food_label = "Cake";
 
             }else if(detected_food_label.contains("Spaghetti") || detected_food_label.contains("Lasagna") || detected_food_label.contains("Macaroni")){
