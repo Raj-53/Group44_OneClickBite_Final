@@ -113,7 +113,6 @@ public class OrderFragment extends Fragment {
 //                Toast.makeText(getActivity(), detected_food_label, Toast.LENGTH_SHORT).show();
                 startActivity(intent);
 
-
             }
         });
 

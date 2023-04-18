@@ -85,7 +85,7 @@ public class VideoRecipeInstructions extends AppCompatActivity {
                         break;
                     }
                     case "Lasagna": {
-                        String videoId = "abmjDCk_wVQ";
+                        String videoId = "DhwGdJA-WiE&t=14s";
                         youTubePlayer.loadVideo(videoId, 0);
                         break;
                     }
@@ -170,7 +170,7 @@ public class VideoRecipeInstructions extends AppCompatActivity {
                         break;
                     }
                     case "Apple Pie": {
-                        String videoId = "vlVe7w63ncE";
+                        String videoId = "4u3GfSxzjpA";
                         youTubePlayer.loadVideo(videoId, 0);
                         break;
                     }
