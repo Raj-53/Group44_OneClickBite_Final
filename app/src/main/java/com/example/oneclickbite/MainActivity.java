@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     AppCompatButton btnCamera, btnGallery, btnDetect;
 
     private Double max = 0.0;
-
+    // Comment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
