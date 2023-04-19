@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:fontFamily="@font/open_sans_bold"
+        android:fontFamily="@font/open_sans"
         android:gravity="center"
         android:text="@string/what_do_you_wanna_cook_today"
         android:textSize="28sp" />
