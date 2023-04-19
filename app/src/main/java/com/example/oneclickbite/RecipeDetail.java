@@ -148,7 +148,7 @@ public class RecipeDetail extends AppCompatActivity {
                             cuisineView.append(recipeCuisine);
                             timeView.append(recipeTime);
 
-                            CustomAdapter adapter = new CustomAdapter(RecipeDetail.this, ingrs);
+                            CustomAdapterIngrs adapter = new CustomAdapterIngrs(RecipeDetail.this, ingrs);
                             recView.setAdapter(adapter);
 
                             CustomAdapter adapter2 = new CustomAdapter(RecipeDetail.this, steps);
