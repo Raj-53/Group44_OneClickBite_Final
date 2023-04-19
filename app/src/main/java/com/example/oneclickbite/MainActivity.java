@@ -106,12 +106,12 @@ public class MainActivity extends AppCompatActivity {
                 if (img.getDrawable() != null) {
                     BitmapDrawable drawable = (BitmapDrawable) img.getDrawable();
                     Bitmap bitmap = drawable.getBitmap();
-
                     // Get the resized bitmap
                     int maxWidth = 1000;
                     int maxHeight = 1000;
                     Bitmap resizedBitmap = getResizedBitmap(bitmap, maxWidth, maxHeight);
 
+//                    Log.i("MyLog", String.valueOf(resizedBitmap.getByteCount()));
                     detected_food_label = classifyImage(resizedBitmap);
 
                     if (detected_food_label.isEmpty()) {

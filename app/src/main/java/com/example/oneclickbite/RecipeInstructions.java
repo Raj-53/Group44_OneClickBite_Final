@@ -203,7 +203,7 @@ public class RecipeInstructions extends AppCompatActivity {
         urlList.add("https://natashaskitchen.com/baked-donuts/");
         urlList.add("https://www.delish.com/cooking/nutrition/a27572637/best-keto-donuts-recipe/");
         //hot n sour-->
-        urlList.add("https://www.allrecipes.com/recipe/13185/chinese-spicy-hot-and-sour-soup/");
+        urlList.add("https://www.allrecipes.com/recipe/56358/thai-hot-and-sour-soup/");
         urlList.add("https://www.allrecipes.com/recipe/80694/hot-and-sour-chicken-soup/");
         urlList.add("https://www.thespruceeats.com/vegetarian-hot-and-sour-soup-1001181");
         //other soups-->
@@ -263,11 +263,11 @@ public class RecipeInstructions extends AppCompatActivity {
         urlList.add("https://natashaskitchen.com/chicken-pizza-with-creamy-garlic-sauce/");
         urlList.add("https://www.allrecipes.com/recipe/57243/chicken-pesto-pizza/");
         //waffles links-->
-        urlList.add("https://addapinch.com/chocolate-chip-waffles/");
-        urlList.add("https://www.lifeloveandsugar.com/easy-fluffy-homemade-waffles/");
+        urlList.add("https://www.thespruceeats.com/keto-waffles-4777047");
+        urlList.add("https://www.thespruceeats.com/red-velvet-waffles-4588906");
         urlList.add("https://natashaskitchen.com/whole-wheat-and-blueberry-waffles/");
         //fried rice links-->
-        urlList.add("https://www.lifeloveandsugar.com/quick-and-easy-chicken-fried-rice/");
+        urlList.add("https://www.delish.com/cooking/recipe-ideas/a25325036/how-to-make-fried-rice/");
         urlList.add("https://natashaskitchen.com/shrimp-fried-rice-recipe/");
         urlList.add("https://www.eitanbernath.com/2018/11/26/turkey-fried-rice/");
         //cupcakes links-->
