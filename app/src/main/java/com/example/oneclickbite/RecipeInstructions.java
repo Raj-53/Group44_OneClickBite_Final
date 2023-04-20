@@ -272,7 +272,7 @@ public class RecipeInstructions extends AppCompatActivity {
         urlList.add("https://www.eitanbernath.com/2018/11/26/turkey-fried-rice/");
         //cupcakes links-->
         urlList.add("https://addapinch.com/chocolate-cupcakes-recipe/");
-        urlList.add("https://www.lifeloveandsugar.com/strawberries-and-cream-cupcakes/");
+        urlList.add("https://www.allrecipes.com/recipe/220884/lemon-cupcake-with-blackberry-buttercream/");
         urlList.add("https://www.allrecipes.com/recipe/157877/vanilla-cupcake/");
         //sushi links-->
         urlList.add("https://natashaskitchen.com/sushi-rice-and-california-rolls-recipe/");

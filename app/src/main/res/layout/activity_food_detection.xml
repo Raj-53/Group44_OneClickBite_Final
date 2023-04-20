@@ -90,7 +90,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="80dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/montserrat"
                     android:text="@string/rYes"
@@ -101,7 +101,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="80dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/montserrat"
                     android:text="@string/rNo"
@@ -114,7 +114,7 @@
                 android:layout_margin="3dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="0.6"/>
         </LinearLayout>
     </LinearLayout>
 
