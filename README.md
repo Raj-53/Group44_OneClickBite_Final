@@ -10,5 +10,6 @@ Once an uploaded image is identified, the user may select to prepare/order the f
 
 To get this application, download the OneclickBite.apk file from the "OneClickBite_apk_file.zip" folder, enable the "install from unknown sources" option, and install the APK file. For understanding the flow of app, you can refer to the "Readme OnClickBite.pdf" file.
 
-You can find th project presentation here --> https://www.youtube.com/watch?v=WYh8R2tJQzc
+You can find the project presentation here --> https://www.youtube.com/watch?v=WYh8R2tJQzc
+
 You can find the app demo here --> https://www.youtube.com/watch?v=uxTss2Gtp8w
