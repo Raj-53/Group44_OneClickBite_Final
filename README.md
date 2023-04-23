@@ -6,4 +6,4 @@ The main objective of this project is to classify food images with 45 different 
 
 Once an uploaded image is identified, the user may select to prepare/order the food. Ordering will redirect the user to Zomato/Swiggy, and the user may choose between text recipes or video recipes. Video recipes will display YouTube videos in English and Hindi that show how to prepare the dish, while text recipes will be obtained through web scraping and displayed on the screen for the user to follow. Additionally, the user can order any missing ingredients required for the recipe from Blinkit/Zepto.
 
-To get this application, download the OneclickBite.apk file, enable the "install from unknown sources" option, and install the APK file. For understanding the flow of app, you can refer the "Readme OnClickBite.pdf" file.
+To get this application, download the OneclickBite.apk file from the "OneClickBite_apk_file.zip" folder, enable the "install from unknown sources" option, and install the APK file. For understanding the flow of app, you can refer the "Readme OnClickBite.pdf" file.
